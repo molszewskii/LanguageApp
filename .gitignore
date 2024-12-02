@@ -1,0 +1,43 @@
+# Node.js (backend)
+backend/node_modules/
+backend/.env
+backend/dist/
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+backend/.DS_Store
+
+# React + Vite (frontend)
+frontend/node_modules/
+frontend/.env
+frontend/dist/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.DS_Store
+frontend/vite-error.log*
+
+# Logi systemowe
+*.log
+*.gz
+
+# MacOS system files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+
+# Coverage reports
+coverage/
+frontend/coverage/
+backend/coverage/
+
+# Optional: Ignore all `.env` files in the project
+*.env
+

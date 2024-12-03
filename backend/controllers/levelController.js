@@ -30,3 +30,17 @@ exports.createLevel = async(req,res)=>{
         res.status(500).json({message: "Failed adding level", error: error.message});
     }
 }
+
+exports.getAllLevels = async(req,res)=>{
+    try{
+        const levels = await Level.find();
+
+        if (levels.length === 0) {
+            return res.status(200).json({ message: "No levels found", levels: [] });
+        }
+        
+        res.status(200).json(levels);
+    }catch(error){
+        res.status(500).json({message: "Failed to retrieve levels", error: error.message});
+    }
+}

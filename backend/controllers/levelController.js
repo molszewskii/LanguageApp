@@ -49,7 +49,7 @@ exports.getLevelById = async(req,res)=>{
     try{
         const level = await Level.findById(req.params.id);
         if(!level){
-            res.status(404).json({message: "Level not found"});
+           return res.status(404).json({message: "Level not found"});
         }
         res.status(200).json(level);
     }catch(error){
@@ -64,7 +64,7 @@ exports.updateLevel = async(req,res)=>{
             runValidators: true,
         });
         if(!levelToUpdate){
-            res.status(404).json({message: "Level not found"});
+           return res.status(404).json({message: "Level not found"});
         }
         res.status(200).json(levelToUpdate);
     }catch(error){

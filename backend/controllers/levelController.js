@@ -38,9 +38,21 @@ exports.getAllLevels = async(req,res)=>{
         if (levels.length === 0) {
             return res.status(200).json({ message: "No levels found", levels: [] });
         }
-        
+
         res.status(200).json(levels);
     }catch(error){
         res.status(500).json({message: "Failed to retrieve levels", error: error.message});
+    }
+}
+
+exports.getLevelById = async(req,res)=>{
+    try{
+        const level = await Level.findById(req.params.id);
+        if(!level){
+            res.status(404).json({message: "Level not found"});
+        }
+        res.status(200).json(level);
+    }catch(error){
+        res.status(500).json({message: error.message});
     }
 }

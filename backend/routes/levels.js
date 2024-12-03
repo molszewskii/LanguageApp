@@ -6,4 +6,5 @@ router.post("/createLevel", levelController.createLevel);
 router.get("/getAllLevels", levelController.getAllLevels);
 router.get("/getLevelById/:id", levelController.getLevelById);
 router.put("/updateLevel/:id", levelController.updateLevel);
+router.delete("/deleteLevel/:id", levelController.deleteLevel);
 module.exports = router;

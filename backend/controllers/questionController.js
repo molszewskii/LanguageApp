@@ -41,3 +41,15 @@ exports.getQuestionsByLevel = async (req, res) => {
         res.status(500).json({ message: "Failed to fetch questions", error: error.message });
     }
 };
+
+exports.getAllQuestions = async(req,res)=>{
+    try{
+        const questions = await Question.find();
+        if(!questions){
+            return res.status(404).json({message: "Questions not found"});
+        }
+        res.status(200).json(questions);
+    }catch(error){
+        res.status(500).json({message: error.message});
+    }
+}

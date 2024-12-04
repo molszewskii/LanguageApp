@@ -27,3 +27,17 @@ exports.createQuestion = async(req,res)=>{
         res.status(500).json({message: "Failed adding the question", error: error.message});
     }
 }
+
+exports.getQuestionsByLevel = async (req, res) => {
+    const { levelId } = req.params;
+
+    try {
+        const questions = await Question.find({ level: levelId });
+        if (!questions.length) {
+            return res.status(404).json({ message: "No questions found for this level" });
+        }
+        res.status(200).json(questions);
+    } catch (error) {
+        res.status(500).json({ message: "Failed to fetch questions", error: error.message });
+    }
+};

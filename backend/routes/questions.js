@@ -4,4 +4,5 @@ const questionController = require("../controllers/questionController")
 
 router.post("/createQuestion", questionController.createQuestion);
 router.get("/getQuestionsByLevel/:levelId", questionController.getQuestionsByLevel);
+router.get("/getAllQuestions", questionController.getAllQuestions);
 module.exports = router;

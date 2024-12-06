@@ -7,4 +7,5 @@ router.get("/getQuestionsByLevel/:levelId", questionController.getQuestionsByLev
 router.get("/getAllQuestions", questionController.getAllQuestions);
 router.get("/getQuestionById/:id", questionController.getQuestionById);
 router.delete("/deleteQuestion/:id", questionController.deleteQuestion);
+router.put("/updateQuestion/:id", questionController.updateQuestion);
 module.exports = router;

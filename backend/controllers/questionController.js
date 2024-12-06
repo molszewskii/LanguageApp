@@ -79,3 +79,18 @@ exports.deleteQuestion = async(req,res)=>{
         res.status(500).json({message: "Failed to delete question", error: error.message})
     }
 }
+
+exports.updateQuestion = async(req,res)=>{
+    try{
+        const question = await Question.findByIdAndUpdate(req.params.id, req.body,{
+            new: true,
+            runValidators: true,
+        })
+        if(!question){
+            return res.status(404).json({message:"Question not found"});
+        }
+        res.status(200).json({message: "Question updated successfully"});
+    }catch(error){
+        res.status(500).json({message: "Failed to update question", error: error.message});
+    }
+}

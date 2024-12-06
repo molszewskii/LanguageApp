@@ -53,3 +53,17 @@ exports.getAllQuestions = async(req,res)=>{
         res.status(500).json({message: error.message});
     }
 }
+
+exports.getQuestionById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const question = await Question.findById(id);
+        if (!question) {
+            return res.status(404).json({ message: "Question not found" });
+        }
+        res.status(200).json(question);
+    } catch (error) {
+        res.status(500).json({ message: "Failed to fetch question", error: error.message });
+    }
+};

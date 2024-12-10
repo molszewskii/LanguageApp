@@ -18,8 +18,10 @@ db.once("open", ()=>console.log("Connected to MongoDB"));
 
 const levelRouter = require("./routes/levels");
 const questionRouter = require("./routes/questions");
+const userRouter = require("./routes/users");
 app.use("/api/levels",levelRouter);
 app.use("/api/questions", questionRouter);
+app.use("/api/auth",userRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))
